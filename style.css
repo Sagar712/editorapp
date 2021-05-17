@@ -145,6 +145,64 @@ pre{
     word-wrap: break-word;
 }
 
+.savepopup{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(0, 139, 139);
+    width: 22rem;
+    height: 10rem;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 7px;
+    z-index: 1000;
+}
+.savepopup.active{
+    display: flex;
+}
+.savepopup p{
+    color: white;
+}
+.savepopup button{
+    width: 4rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 0.4rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: none;
+}
+.savepopup button:active{
+    background-color: grey;
+}
+
+.savepopup input{
+    height: 1.5rem;
+    border-radius: 5px;
+    border: none;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+.overlay{
+    position: fixed;
+    visibility: hidden;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.801);
+    z-index: 999;
+}
+.overlay.active{
+    visibility: visible;
+}
+
+
 @media screen and (max-width:930px)  {
     .logo{
         margin-left: 1rem;
