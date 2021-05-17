@@ -61,22 +61,16 @@
 
         <button class="btn" data-element="indent" title="Left indentation"><i class="fas fa-indent"></i></button>
 
-        <button class="saveBtn" onclick="openPopup()" title="Data gets saved to local machine">Save</button>
+        <button class="saveBtn" onclick="savedata()" title="Data gets saved to local machine">Save</button>
     </div>
     <pre class="content" contenteditable="true"></pre>
 
-    <div class="savepopup">
-        <p>Save as temporary file</p>
-        <button onclick="savedata()">Save</button>
-        <p>Or enter name to save permanent file</p>
-        <input type="text" class="filename">
-        <button onclick="saveSpecificData()">Save</button>
-    </div>
-    <div class="confirmpopup">
-        <p>Changes saved !</p>
+    <!--
+        <div class="content" contenteditable="true">
+        <pre id="maincontent"></pre>
     </div>
 
-    <div class="overlay" onclick="closeSpecific()"></div>
+    -->
 
     <script src="./main.js"></script>
 </body>

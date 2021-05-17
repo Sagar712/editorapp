@@ -24,7 +24,21 @@ function popupmenu() {
 
 
 const allbtns = document.querySelectorAll('.btn');
-
+/*
+allbtns.forEach(butn => {
+    butn.addEventListener('click', () => {
+        let command = butn.dataset['element'];
+        if(command == 'foreColor'){
+            document.execCommand(command, false, 'red');
+        }
+        else if(command == 'fontSize'){
+            document.execCommand(command, false, 3);
+        }
+        else
+            document.execCommand(command, false, null);
+    });
+});
+*/
 let size = 0;
 let color = 0;
 
@@ -60,36 +74,16 @@ allbtns.forEach(butn => {
     });
 });
 
-function openPopup() {
-    const popup = document.querySelector('.savepopup');
-    const overlay = document.querySelector('.overlay');
-    popup.classList.toggle('active');
-    overlay.classList.toggle('active');
-}
-
-function closeSpecific() {
-    openPopup();
-}
-
 function savedata() {
     const source = document.querySelector('.content').innerHTML;
+    //console.log(source);
     localStorage.setItem('textData', source);
-    openPopup();
+    alert("Changes saved !");
+    let str = "Sagr <!------> vishal ksjjks <!------> Akash";
+    let splits = [];
+    splits = str.split('<!------>');
+    
 }
-
-function saveSpecificData() {
-    const filename = document.querySelector('.filename').value;
-    const source = document.querySelector('.content').innerHTML;
-    let allFilesData = {
-        
-    };
-    allFilesData[1] = {
-        name:filename,
-        data:source
-    }
-    console.log(allFilesData);
-}
-
 
 function renderer() {
     document.querySelector('.content').innerHTML = localStorage.getItem('textData');
