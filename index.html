@@ -19,12 +19,6 @@
     <header>
 		<div class="logo"><i class="fas fa-pen-fancy"></i> Edit Text <sub style="font-size: 0.7rem;font-style: italic;"> by Sagar</sub></div>
 
-        <div class="selectOption">
-            <select name="items" id="textItems" onchange="printOption()">
-                
-            </select>
-        </div>
-
 		<div class="menuitems2">
 
             <div class="icons" onclick="location.href='./import-export/import-export.html'" title="Import or Export">
@@ -77,6 +71,13 @@
         <button class="saveBtn" onclick="newFile()" title="Data gets saved to local storage" style="background-color: rgb(255, 213, 159);">New</button>
 
         <button class="saveBtn" onclick="openPopup()" title="Data gets saved to local storage">Save</button>
+        <div class="selectOption">
+            <select name="items" id="textItems" onchange="printOption()">
+                
+            </select>
+        </div>
+        <div class="pushinto"></div>
+        
     </div>
     <pre class="content" contenteditable="true"></pre>
 

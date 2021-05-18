@@ -22,6 +22,8 @@ function popupmenu() {
 
 // heaader till this. Add code next to this.
 
+// green faint:-  rgb(175, 255, 206)
+
 sessionStorage.setItem("currentFile", "NONE");
 
 function printOption() {
@@ -39,7 +41,38 @@ function printOption() {
         }
         i++;
     }
+    document.querySelector('.pushinto').innerHTML = 
+    `<div class="delbtn" onclick="DeleteItem('${filename}')"> Delete "${filename}" </div>`
     
+}
+
+function DeleteItem(itemName) {
+    console.log(itemName + " deleted");
+    if(confirm("Confirm deletion?")){
+        let AllTextItems = JSON.parse(localStorage.getItem('AllTextItems'));
+        let deltion = {
+
+        };
+        let num=1;
+        let i=1;
+        while(AllTextItems[i]!=null){
+            if(itemName == AllTextItems[i].name){
+                
+            }
+            else{
+                deltion[num++] = AllTextItems[i];
+            }
+            i++;
+        }
+        localStorage.setItem('AllTextItems', JSON.stringify(deltion));
+
+        console.log(deltion);
+        animatToast("Deleted successfully!", "pink");
+        renderer();
+    }
+    else{
+        animatToast("Calcelled deletion!", "pink");
+    }
 }
 
 function animatToast(msg, bgColor) {
@@ -58,6 +91,7 @@ function animatToast(msg, bgColor) {
 function newFile() {
     document.querySelector('.content').innerHTML = "";
     animatToast("New file created", "azure");
+    sessionStorage.setItem("currentFile", "NONE");
 }
 
 const allbtns = document.querySelectorAll('.btn');
@@ -171,7 +205,7 @@ function saveSpecificData() {
         localStorage.setItem('AllTextItems', JSON.stringify(allFilesData));
     }
     openPopup();
-    //renderer();
+    renderer();
     animatToast("File saved !", "rgb(175, 255, 206)");
 }
 
@@ -193,7 +227,7 @@ function renderer() {
     console.log(i);
     for (let index = 1; index < i; index++) {
         const element = AllTextItems[index].name;
-        Str = Str.concat(`<option value="${element}"> ${element} </option>`);
+        Str = Str.concat(`<option value="${element}"> ${element}</option>`);
     }
     console.log(Str);
     document.getElementById('textItems').innerHTML = Str;
