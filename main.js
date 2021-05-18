@@ -92,6 +92,7 @@ function newFile() {
     document.querySelector('.content').innerHTML = "";
     animatToast("New file created", "azure");
     sessionStorage.setItem("currentFile", "NONE");
+    renderer();
 }
 
 const allbtns = document.querySelectorAll('.btn');
