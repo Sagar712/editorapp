@@ -36,6 +36,15 @@ header{
     font-weight: bold;
 }
 
+.selectOption select{
+    height: 1.7rem;
+    width: 7.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+}
+
 .menuitems2{
     display: flex;
     height: 100%;
@@ -112,12 +121,9 @@ header{
     margin-left: 0.5rem;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.btn:active{
-    background-color: rgb(0, 223, 223);
-    transform:scale(0.95);
-}
 
-.btn.active{
+
+.btn:active{
     background-color: rgb(0, 179, 179);
 }
 .saveBtn{
@@ -143,6 +149,132 @@ pre{
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
+}
+
+.savepopup{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(0, 139, 139);
+    width: 20rem;
+    height: 10rem;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 7px;
+    z-index: 1000;
+}
+.confirmpopup{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(0, 139, 139);
+    width: 20rem;
+    height: 10rem;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 7px;
+    z-index: 1000;
+    font-size: 1.2rem;
+}
+.confirmpopup button{
+    width: 4rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 2.5rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: none;
+}
+.confirmpopup button:active{
+    background-color: rgb(160, 160, 160);
+}
+.savepopup.active, .confirmpopup.active{
+    display: flex;
+}
+.savepopup p, .confirmpopup p{
+    color: white;
+}
+.savepopup button{
+    width: 4rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: none;
+}
+.savepopup button:active{
+    background-color: grey;
+}
+
+.savepopup input{
+    height: 2rem;
+    border-radius: 5px;
+    border: none;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+.overlay, .overlay2{
+    position: fixed;
+    visibility: hidden;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.801);
+    z-index: 999;
+}
+.overlay.active, .overlay2.active{
+    visibility: visible;
+}
+
+.toastNotify{
+    position: fixed;
+    top: -5rem;
+    left: 5rem;
+    height: 2.5rem;
+    min-width: 7rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: rgb(175, 255, 206);
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.toastNotify.animate{
+    animation: popping 4s forwards ease;
+}
+
+@keyframes popping {
+    0%{
+        top: -5rem;
+    }
+    10%{
+        top: 0.5rem;
+    }
+    90%{
+        top: 0.5rem;
+    }
+    100%{
+        top: -5rem;
+    }
 }
 
 @media screen and (max-width:930px)  {
