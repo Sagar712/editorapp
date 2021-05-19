@@ -122,10 +122,12 @@ allbtns.forEach(butn => {
         if(command == 'foreColor'){
             if(color == 0){
                 document.execCommand(command, false, 'rgb(253, 255, 112)');
+                butn.style.color = 'yellow';
                 color = 1;
             }
             else{
                 document.execCommand(command, false, 'white');
+                butn.style.color = 'white';
                 color = 0;
             }
             
