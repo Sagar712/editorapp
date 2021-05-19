@@ -23,7 +23,6 @@ function popupmenu() {
 // heaader till this. Add code next to this.
 
 // green faint:-  rgb(175, 255, 206)
-
 sessionStorage.setItem("currentFile", "NONE");
 
 function printOption() {
@@ -33,7 +32,7 @@ function printOption() {
     let i=1;
     
     while(AllTextItems[i]!=null){
-        console.log(filename + " <--> " + AllTextItems[i].name);
+        //console.log(filename + " <--> " + AllTextItems[i].name);
         if(filename === AllTextItems[i].name){
             document.querySelector('.content').innerHTML = AllTextItems[i].data;
             animatToast(`"${filename}" loaded successfully`, "rgb(175, 255, 206)");
@@ -84,7 +83,7 @@ function animatToast(msg, bgColor) {
     toastNote.classList.add('animate');
     setTimeout(() => {
         toastNote.classList.remove('animate');
-    }, 3000);
+    }, 2000);
     //console.log(firsttime+" "+toastNote.classList);
 }
 
@@ -92,7 +91,6 @@ function newFile() {
     document.querySelector('.content').innerHTML = "";
     animatToast("New file created", "azure");
     sessionStorage.setItem("currentFile", "NONE");
-    renderer();
 }
 
 const allbtns = document.querySelectorAll('.btn');
@@ -225,12 +223,11 @@ function renderer() {
     while(AllTextItems[i]!=null){
         i++;
     }
-    console.log(i);
     for (let index = 1; index < i; index++) {
         const element = AllTextItems[index].name;
         Str = Str.concat(`<option value="${element}"> ${element}</option>`);
     }
-    console.log(Str);
+    
     document.getElementById('textItems').innerHTML = Str;
 }
 
