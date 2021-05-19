@@ -91,6 +91,25 @@ function newFile() {
     document.querySelector('.content').innerHTML = "";
     animatToast("New file created", "azure");
     sessionStorage.setItem("currentFile", "NONE");
+    let AllTextItems = JSON.parse(localStorage.getItem('AllTextItems'));
+    let Str = '<option value="select"> Select file </option>';
+    let i=1;
+    if(localStorage.getItem('AllTextItems')==null){
+        let allFilesData = {
+        
+        };
+        localStorage.setItem('AllTextItems', JSON.stringify(allFilesData));
+    }
+    while(AllTextItems[i]!=null){
+        i++;
+    }
+    for (let index = 1; index < i; index++) {
+        const element = AllTextItems[index].name;
+        Str = Str.concat(`<option value="${element}"> ${element}</option>`);
+    }
+    
+    document.getElementById('textItems').innerHTML = Str;
+    document.querySelector('.pushinto').innerHTML="";
 }
 
 const allbtns = document.querySelectorAll('.btn');
